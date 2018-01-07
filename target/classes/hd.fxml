@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI">
+  <children>
+      <ImageView fitHeight="448.0" fitWidth="603.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="0.95" specularExponent="6.05" surfaceScale="1.16">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#c7cdbe" />
+               </light>
+            </Lighting>
+         </effect>
+         <image>
+            <Image url="@hd.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="20.0" layoutY="15.0" text="Wpisz kod szukanego produktu:">
+          <font>
+              <Font name="Sitka Text" size="16.0" />
+          </font>
+      </Label>
+      <AnchorPane id="ap" layoutX="10.0" layoutY="10.0" prefHeight="448.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="t" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="510.0" layoutY="142.0" mnemonicParsing="false" onAction="#procesT" prefHeight="47.0" prefWidth="79.0" text="T" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#8aae78" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="20.0" fx:id="x111" />
+               </font>
+            </Button>
+            <Button id="l" fx:id="l" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="510.0" layoutY="216.0" mnemonicParsing="false" onAction="#procesL" prefHeight="47.0" prefWidth="79.0" text="L" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#8aae78" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="20.0" fx:id="x121" />
+               </font>
+            </Button>
+            <Button id="etl" fx:id="etl" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="492.0" layoutY="326.0" mnemonicParsing="false" onAction="#procesETL" prefHeight="47.0" prefWidth="97.0" text="ETL" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#8aae78" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="20.0" fx:id="x131" />
+               </font>
+            </Button>
+            <Button id="csv" fx:id="csv" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="20.0" layoutY="402.0" mnemonicParsing="false" onAction="#csv" prefHeight="32.0" prefWidth="109.0" text="Import do csv" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#88a0b9" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="14.0" fx:id="x141" />
+               </font>
+            </Button>
+            <Button id="clear" fx:id="clear" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="140.0" layoutY="402.0" mnemonicParsing="false" onAction="#clear" prefHeight="32.0" prefWidth="155.0" text="Wyczyść bazę danych" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#88a0b9" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="14.0" fx:id="x1411" />
+               </font>
+            </Button>
+            <Button id="e" fx:id="e" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="510.0" layoutY="69.0" mnemonicParsing="false" onAction="#procesE" prefHeight="47.0" prefWidth="79.0" text="E" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#8aae78" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="20.0" fx:id="x11" />
+               </font>
+            </Button>
+            <TextField id="tf1" fx:id="tf1" layoutX="284.0" layoutY="12.0" opacity="0.76">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Button id="ok" fx:id="ok" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="443.0" layoutY="11.0" mnemonicParsing="false" onAction="#ok" prefHeight="12.0" prefWidth="43.0" text="OK" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="ONE_PASS_BOX" color="#2e5b1a" height="32.86" radius="10.7425" width="12.11" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#69b9a1" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="14.0" fx:id="x151" />
+               </font>
+            </Button>
+            <Button id="clear" fx:id="show" blendMode="SOFT_LIGHT" cache="true" cacheHint="SCALE" cancelButton="false" defaultButton="true" layoutX="329.0" layoutY="402.0" mnemonicParsing="false" onAction="#show" prefHeight="32.0" prefWidth="136.0" text="Wyświetl opinie" textAlignment="CENTER" textFill="BLACK" textOverrun="WORD_ELLIPSIS" underline="false" wrapText="true">
+               <effect>
+                  <Lighting diffuseConstant="1.01" specularConstant="0.36" specularExponent="15.15" surfaceScale="1.19">
+                     <bumpInput>
+                        <Shadow blurType="TWO_PASS_BOX" color="#2e5b1a" height="41.76" radius="20.38" width="41.76" />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#88a0b9" />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Garamond Bold" size="14.0" fx:id="x14111" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <ColorAdjust>
+               <input>
+                  <Bloom />
+               </input>
+            </ColorAdjust>
+         </effect>
+      </AnchorPane>
+      <ScrollPane layoutX="20.0" layoutY="61.0" prefHeight="245.0" prefViewportHeight="228.0" prefViewportWidth="470.0" prefWidth="470.0">
+          <content>
+              <TextArea id="ta1" fx:id="ta1" editable="false" layoutX="20.0" layoutY="61.0" prefHeight="242.0" prefWidth="473.0" wrapText="false" />
+          </content>
+      </ScrollPane>
+      <ScrollPane layoutX="20.0" layoutY="326.0" prefHeight="55.0" prefViewportHeight="53.0" prefViewportWidth="456.0" prefWidth="442.0">
+          <content>
+              <TextArea id="ta2" fx:id="ta2" editable="false" layoutX="20.0" layoutY="326.0" prefHeight="53.0" prefWidth="444.0" />
+          </content>
+      </ScrollPane>
+  </children>
+</AnchorPane>
