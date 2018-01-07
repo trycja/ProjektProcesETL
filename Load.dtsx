@@ -1,0 +1,819 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/6/2018 6:59:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DELL-XPS"
+  DTS:CreatorName="DELL-XPS\Dominik"
+  DTS:DTSID="{814A3FCD-380E-4760-960E-7E0542284168}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Load"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{EE1499D4-6DE7-4C6D-8A85-23385440C702}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LOCALHOST.Warehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{294B72A6-96E1-4E20-B091-2613FE2E513B}"
+      DTS:ObjectName="LOCALHOST.Warehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LOCALHOST;Initial Catalog=Warehouse;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{80D2348A-70E8-40C2-8A13-CC6E559B6278}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load\Tabela"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabela"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Tabela]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 100000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load\Tabela.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LOCALHOST.Warehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOCALHOST.Warehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load\Tabela.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[typ]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="typ"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[typ]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[typ]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[marka]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="marka"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[marka]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[marka]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[model]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="model"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[model]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[DodatkoweUwagi]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="DodatkoweUwagi"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[DodatkoweUwagi]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[DodatkoweUwagi]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[KodProduktu]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="KodProduktu"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[KodProduktu]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[KodProduktu]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Autor]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Autor"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Autor]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Autor]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Podsumowanie]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Podsumowanie"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Podsumowanie]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Podsumowanie]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Zalety]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Zalety"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Zalety]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Zalety]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Wady]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Wady"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Wady]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Wady]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Ocena]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Ocena"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Ocena]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Ocena]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[DataWystawienia]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DataWystawienia"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[DataWystawienia]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[DataWystawienia]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[PolecamNiepolecam]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PolecamNiepolecam"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[PolecamNiepolecam]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[PolecamNiepolecam]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Pomocne]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pomocne"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Pomocne]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Pomocne]" />
+                    <inputColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].Columns[Niepomocne]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Niepomocne"
+                      externalMetadataColumnId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Niepomocne]"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Niepomocne]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[typ]"
+                      dataType="wstr"
+                      length="100"
+                      name="typ" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[marka]"
+                      dataType="wstr"
+                      length="100"
+                      name="marka" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                      dataType="wstr"
+                      length="500"
+                      name="model" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[DodatkoweUwagi]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DodatkoweUwagi" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[KodProduktu]"
+                      dataType="wstr"
+                      length="50"
+                      name="KodProduktu" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Autor]"
+                      dataType="wstr"
+                      length="100"
+                      name="Autor" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Podsumowanie]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Podsumowanie" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Zalety]"
+                      dataType="wstr"
+                      length="500"
+                      name="Zalety" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Wady]"
+                      dataType="wstr"
+                      length="500"
+                      name="Wady" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Ocena]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ocena" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[DataWystawienia]"
+                      dataType="wstr"
+                      length="50"
+                      name="DataWystawienia" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[PolecamNiepolecam]"
+                      dataType="wstr"
+                      length="50"
+                      name="PolecamNiepolecam" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Pomocne]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pomocne" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Tabela.Inputs[OLE DB Destination Input].ExternalColumns[Niepomocne]"
+                      dataType="wstr"
+                      length="50"
+                      name="Niepomocne" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load\Tabela.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load\Tabela.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load\Tabela.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load\Tabela.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load\Tabela.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load\Tabela.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load\Zapytanie"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Zapytanie"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+       typ
+     , marka
+     , model
+     , DodatkoweUwagi
+     , p.KodProduktu
+     , [Autor]
+     , [Podsumowanie]
+     , [Zalety]
+     , [Wady]
+     , [Ocena]
+     , [DataWystawienia]
+     , [PolecamNiepolecam]
+     , [Pomocne]
+     , [Niepomocne]
+FROM Opinie o
+JOIN Produkty p
+     ON p.KodProduktu = o.KodProduktu;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load\Zapytanie.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LOCALHOST.Warehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[LOCALHOST.Warehouse]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[typ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[typ]"
+                      length="100"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[typ]"
+                      name="typ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[marka]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[marka]"
+                      length="100"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[marka]"
+                      name="marka"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[model]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                      length="500"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[model]"
+                      name="model"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[DodatkoweUwagi]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[DodatkoweUwagi]"
+                      length="1000"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[DodatkoweUwagi]"
+                      name="DodatkoweUwagi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[KodProduktu]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[KodProduktu]"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[KodProduktu]"
+                      name="KodProduktu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Autor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Autor]"
+                      length="100"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Autor]"
+                      name="Autor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Podsumowanie]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Podsumowanie]"
+                      length="4000"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Podsumowanie]"
+                      name="Podsumowanie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Zalety]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Zalety]"
+                      length="500"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Zalety]"
+                      name="Zalety"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Wady]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Wady]"
+                      length="500"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Wady]"
+                      name="Wady"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Ocena]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Ocena]"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Ocena]"
+                      name="Ocena"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[DataWystawienia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[DataWystawienia]"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[DataWystawienia]"
+                      name="DataWystawienia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[PolecamNiepolecam]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[PolecamNiepolecam]"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[PolecamNiepolecam]"
+                      name="PolecamNiepolecam"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Pomocne]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Pomocne]"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Pomocne]"
+                      name="Pomocne"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Niepomocne]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Niepomocne]"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].Columns[Niepomocne]"
+                      name="Niepomocne"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[typ]"
+                      dataType="wstr"
+                      length="100"
+                      name="typ" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[marka]"
+                      dataType="wstr"
+                      length="100"
+                      name="marka" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                      dataType="wstr"
+                      length="500"
+                      name="model" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[DodatkoweUwagi]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DodatkoweUwagi" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[KodProduktu]"
+                      dataType="wstr"
+                      length="50"
+                      name="KodProduktu" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Autor]"
+                      dataType="wstr"
+                      length="100"
+                      name="Autor" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Podsumowanie]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Podsumowanie" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Zalety]"
+                      dataType="wstr"
+                      length="500"
+                      name="Zalety" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Wady]"
+                      dataType="wstr"
+                      length="500"
+                      name="Wady" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Ocena]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ocena" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[DataWystawienia]"
+                      dataType="wstr"
+                      length="50"
+                      name="DataWystawienia" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[PolecamNiepolecam]"
+                      dataType="wstr"
+                      length="50"
+                      name="PolecamNiepolecam" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Pomocne]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pomocne" />
+                    <externalMetadataColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Output].ExternalColumns[Niepomocne]"
+                      dataType="wstr"
+                      length="50"
+                      name="Niepomocne" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[typ]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[typ]"
+                      name="typ" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[marka]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[marka]"
+                      name="marka" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[model]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[model]"
+                      name="model" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[DodatkoweUwagi]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[DodatkoweUwagi]"
+                      name="DodatkoweUwagi" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[KodProduktu]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[KodProduktu]"
+                      name="KodProduktu" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Autor]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Autor]"
+                      name="Autor" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Podsumowanie]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Podsumowanie]"
+                      name="Podsumowanie" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Zalety]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Zalety]"
+                      name="Zalety" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Wady]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Wady]"
+                      name="Wady" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Ocena]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Ocena]"
+                      name="Ocena" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[DataWystawienia]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[DataWystawienia]"
+                      name="DataWystawienia" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[PolecamNiepolecam]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[PolecamNiepolecam]"
+                      name="PolecamNiepolecam" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Pomocne]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Pomocne]"
+                      name="Pomocne" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Niepomocne]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[Niepomocne]"
+                      name="Niepomocne" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load\Zapytanie.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load.Paths[OLE DB Source Output]"
+              endId="Package\Load\Tabela.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load\Zapytanie.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="101.5,42"
+          Id="Package\Load"
+          TopLeft="283,88.25" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Load\Zapytanie"
+          TopLeft="161.75,62" />
+        <NodeLayout
+          Size="110.5,42"
+          Id="Package\Load\Tabela"
+          TopLeft="191.25,213" />
+        <EdgeLayout
+          Id="Package\Load.Paths[OLE DB Source Output]"
+          TopLeft="224.25,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.25,109"
+              Start="0,0"
+              End="22.25,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5"
+                    Point2="0,54.5"
+                    Point3="4,54.5" />
+                  <mssgle:LineSegment
+                    End="18.25,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.25,54.5"
+                    Point2="22.25,54.5"
+                    Point3="22.25,58.5" />
+                  <mssgle:LineSegment
+                    End="22.25,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load\Zapytanie">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load\Tabela">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
